@@ -38,10 +38,10 @@ export default class RandomForm extends Component {
                     </div>
                 </div>
                 <div className="form-group btn-section-bank" align='center'>
-                        <button className="btn btn-light" type="submit">Aceptar</button>
-                        <button className="btn btn-light" type="submit">Modificar</button>
-                        <button className="btn btn-light" type="submit">Ver PDF</button>
-                        <button className="btn btn-light" type="submit">Submit form for {this.props.trx}</button>
+                        <button className="btn btn-primary" type="submit">Aceptar</button>
+                        <button className="btn btn-primary" type="submit">Modificar</button>
+                        <button className="btn btn-primary" type="submit">Ver PDF</button>
+                        <button className="btn btn-primary" type="submit">Submit form for {this.props.trx}</button>
 
                 </div>
             </form>            

@@ -1,5 +1,8 @@
+.App{
+  align-items: center;  
+}
 .nav-bank{
-  background-color: darkblue;
+  background-color: rgb(0, 123, 255);
   color: whitesmoke;
 }
 .nav-bank-link{
@@ -7,7 +10,7 @@
 }
 .label-bank{
   font-weight: bold ;
-  color: darkblue;
+  color: rgb(0, 123, 255); 
   margin-right: 10px;      
 }
 .form-bank{
@@ -17,3 +20,24 @@
 .btn-section-bank{
   align-items: center;  
 }
+.input-login{
+  margin-top: 10px;
+  text-align: center; 
+}
+.img-login{
+  font-size: 20em;
+  text-align: center;
+  color: rgb(0, 123, 255); 
+}
+.errorMsg {
+  font-weight: bolder;  
+}
+.errorMsg-blk{
+  font-weight: bolder;
+  color: black;
+}
+.errorMsg-danger{
+  font-weight: bolder;
+  color: red;
+}
+

@@ -1,7 +1,6 @@
 import React from 'react'
 
-const Title = (props) => {
-    console.log('props', props)
+const Title = (props) => {    
     if (props.icon) {
         return (
             <div>            
