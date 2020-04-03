@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import RandomForm from './RandomForm';
 
 export default class WorkSpace extends Component {
   state = { trx: ''}
 
-  render() {
-    console.log('-->render')
-    return (
-      <div>{this.props.trx}</div>
-    )
+  render() {      
+      const { trx } = this.props
+    if (trx !== '') {
+        return (
+            <RandomForm trx={this.props.trx} />
+        )
+    } else {
+        return (
+            <div></div>
+        )
+    }
   }
 }

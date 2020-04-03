@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import WorkSpace from './components/WorkSpace';
 import NavigationPanel from './components/NavigationPanel';
 
 class App extends Component {
-  state = {trx : '', logged: true, userName_: 'Random User' }
+  state = {trx : '', logged: true, user: 'Me' }
 
   _getTrx = (trx) => {
     this.setState( {trx} )
@@ -18,7 +20,7 @@ class App extends Component {
       return(
         <div className="App">
           <header className="">
-            <NavigationPanel onResult={this._getTrx} logged={this.state.logged} userName={this.state.userName_}/>
+            <NavigationPanel onResult={this._getTrx} logged={this.state.logged} user={this.state.user}/>
           </header>
             <WorkSpace trx={this.state.trx} />        
         </div>
