@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RandomForm from './RandomForm';
+import Welcome from '../img/Welcome.gif'
 
 export default class WorkSpace extends Component {
   state = { trx: ''}
@@ -12,7 +13,9 @@ export default class WorkSpace extends Component {
         )
     } else {
         return (
-            <div></div>
+            <div>
+                <img className='img-welcome' src={Welcome} alt='Welcome' />
+            </div>
         )
     }
   }

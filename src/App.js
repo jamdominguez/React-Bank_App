@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ProgressBar } from 'react-bootstrap'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -6,8 +7,10 @@ import WorkSpace from './components/WorkSpace';
 import NavigationPanel from './components/NavigationPanel';
 import Login from './components/Login'
 
+const INIT_STATE = {trx : '', logged: false, user: 'Me', load: 0, loadLabel: ''}
+
 class App extends Component {
-  state = {trx : '', logged: false, user: 'Me' }
+  state = INIT_STATE
 
   _getTrx = (trx) => {
     this.setState( {trx} )
@@ -18,12 +21,48 @@ class App extends Component {
     this.setState({ logged, user })    
   }
 
-  _renderLogged = () => {
-    console.log(this.state)
+  _handleLogoff = () => {
+      this.setState(INIT_STATE)
+  }
+
+  // Simulate load
+  componentDidUpdate = () => {
+    if (this.state.logged) {
+      const timer = setTimeout(()=>{
+        const increment = Math.trunc(Math.random()*10)
+        const currentLoad = this.state.load
+        let msg;
+        if(currentLoad < 33) {
+          msg = 'Tomando asiento'
+        } else if (33 <= currentLoad && currentLoad < 66) {
+          msg = 'Calentando motores'
+        } else {
+          msg = 'Despegando'
+        }
+        this.setState({ load: this.state.load + increment, loadLabel: msg})
+      }, 250)
+      if (this.state.load > 100) clearTimeout(timer)
+    }
+  }
+
+  _renderLogged = () => {    
+    const { load, loadLabel } = this.state
+    
+    if (load <= 100) {
+      const progressInstance = <ProgressBar now={load} label={`${loadLabel}`}/>
+      return(
+        <div className="App">          
+          <header className="">
+            <NavigationPanel onResult={this._getTrx} logged={this.state.logged} user={this.state.user} onLogoff={this._handleLogoff}/>
+          </header>
+            {progressInstance}
+        </div>        
+      ) 
+    }
     return(
         <div className="App">          
           <header className="">
-            <NavigationPanel onResult={this._getTrx} logged={this.state.logged} user={this.state.user}/>
+            <NavigationPanel onResult={this._getTrx} logged={this.state.logged} user={this.state.user} onLogoff={this._handleLogoff}/>
           </header>
             <WorkSpace trx={this.state.trx} />        
         </div>
@@ -37,7 +76,7 @@ class App extends Component {
   }
 
   
-  render() {
+  render() {    
       return this.state.logged ? this._renderLogged() : this._renderUnlogged()
     }  
 }

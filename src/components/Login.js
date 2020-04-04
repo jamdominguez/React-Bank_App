@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 export default class Login extends Component {
     state = { logged: false, user: '', error: false }
     
+    // Simulate login validation
     _handleSubmit = (e) => {
         e.preventDefault()
         const user = document.getElementById('userId').value
@@ -35,7 +36,7 @@ export default class Login extends Component {
                     <form onSubmit={this._handleSubmit}>
                         {this._renderError()}
                         <input onChange={this._handleChange}id='userId' className="form-control input-login" type="text" maxLength='7' size='7' required/>
-                        <button className="form-control btn btn-primary input-login">LOGIN</button>
+                        <button className="form-control btn btn-light input-login btn-bank">LOGIN</button>
                     </form>
                 </div>
           </div>        

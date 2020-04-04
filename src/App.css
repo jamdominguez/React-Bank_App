@@ -2,15 +2,24 @@
   align-items: center;  
 }
 .nav-bank{
-  background-color: rgb(0, 123, 255);
+  background-color: rgb(27, 40, 69) !important; 
+  color: whitesmoke !important;
+  border-bottom: 3px solid white !important;
+}
+.nav-bank-collapse{
+  background-color: rgb(27, 40, 69) !important; 
+  color: whitesmoke !important;  
+}
+.nav-bank-danger{
+  background-color: rgb(220, 53, 69);
   color: whitesmoke;
 }
 .nav-bank-link{
-  color: rgb(147, 188, 221);
+  color: rgb(147, 188, 221) !important;
 }
 .label-bank{
   font-weight: bold ;
-  color: rgb(0, 123, 255); 
+  color: rgb(27, 40, 69); 
   margin-right: 10px;      
 }
 .form-bank{
@@ -27,7 +36,7 @@
 .img-login{
   font-size: 20em;
   text-align: center;
-  color: rgb(0, 123, 255); 
+  color: rgb(27, 40, 69); 
 }
 .errorMsg {
   font-weight: bolder;  
@@ -40,4 +49,26 @@
   font-weight: bolder;
   color: red;
 }
-
+.btn-trx{  
+  margin: 20px 3px 5px;
+}
+.btn-bank{
+  font-weight: bolder !important;
+  color: rgb(27, 40, 69) !important;     
+}
+.btn-nav{
+  font-weight: bolder !important;
+  background-color: rgb(27, 40, 69) !important; 
+  border-color: red;
+  color: seashell !important;
+}
+.img-welcome{
+  width: 100%;
+}
+.progress-custom {
+  background-color: purple;
+  color: white;
+}
+.nav-margin{
+  margin-right: 50px;
+}
