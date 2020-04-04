@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { Navbar, Nav} from 'react-bootstrap'
 import  LogoffPanel  from './LogoffPanel'
 import  Title  from './Title'
+import Welcome from '../img/Welcome.gif'
 
 
 export default class NavigationPanel extends PureComponent {
@@ -23,6 +24,16 @@ export default class NavigationPanel extends PureComponent {
     this.props.onResult(this.state.trx)
     }
 
+    _renderLoadIcon = () => {
+        if (this.props.load >= 100) {
+            return(
+                <div>
+                    <img className='img-welcome img-welcome-nav' src={Welcome} alt='Welcome' />
+                </div>
+            )
+        }
+    }
+
     render(){    
             return(
                 <Navbar expand="lg" className='nav-bank'>                
@@ -42,6 +53,7 @@ export default class NavigationPanel extends PureComponent {
                         <span className='nav-margin'> </span>                      
                         <Title label={this.state.description} icon={false} size='h6'/> 
                     </form>
+                    {this._renderLoadIcon()}
                     <LogoffPanel user={this.props.user} onLogoff={this.props.onLogoff}/> 
                 </Navbar.Collapse>
                 </Navbar>     

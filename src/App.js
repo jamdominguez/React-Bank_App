@@ -40,8 +40,9 @@ class App extends Component {
           msg = 'Despegando'
         }
         this.setState({ load: this.state.load + increment, loadLabel: msg})
-      }, 250)
+      }, 150)
       if (this.state.load > 100) clearTimeout(timer)
+    
     }
   }
 
@@ -53,18 +54,19 @@ class App extends Component {
       return(
         <div className="App">          
           <header className="">
-            <NavigationPanel onResult={this._getTrx} logged={this.state.logged} user={this.state.user} onLogoff={this._handleLogoff}/>
+            <NavigationPanel onResult={this._getTrx} logged={this.state.logged} user={this.state.user} onLogoff={this._handleLogoff} load={this.state.load}/>
           </header>
             {progressInstance}
+            <WorkSpace trx={this.state.trx} load={this.state.load}/>             
         </div>        
       ) 
     }
     return(
         <div className="App">          
           <header className="">
-            <NavigationPanel onResult={this._getTrx} logged={this.state.logged} user={this.state.user} onLogoff={this._handleLogoff}/>
+            <NavigationPanel onResult={this._getTrx} logged={this.state.logged} user={this.state.user} onLogoff={this._handleLogoff} load={this.state.load}/>
           </header>
-            <WorkSpace trx={this.state.trx} />        
+            <WorkSpace trx={this.state.trx} load={this.state.load}/>        
         </div>
     )
   }
