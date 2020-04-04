@@ -1,39 +1,52 @@
-import React, { Component } from 'react';
-import RandomForm from './RandomForm';
+import React, { Component } from 'react'
+import  TLD2  from '../trx_containers/TLD2'
+import  TLMV  from '../trx_containers/TLMV'
+import  AQRI  from '../trx_containers/AQRI'
+import  Error  from './Error'
 import Welcome from '../img/Welcome.gif'
 
 export default class WorkSpace extends Component {
-  state = { trx: ''}
+  _renderTrx = () => {
+        switch(this.props.trx.toUpperCase()) {
+            case 'TLD2':
+                return (<TLD2 onDataTrxLoad={this.props.onDataTrxLoad}/>)
+            case 'TLMV':
+                return (<TLMV onDataTrxLoad={this.props.onDataTrxLoad}/>)                
+            case 'AQRI':
+                return (<AQRI onDataTrxLoad={this.props.onDataTrxLoad}/>)                
+            default:
+                return (<Error />)
+        }
 
-  render() {      
-      const { trx } = this.props
-    if (trx !== '') {
-        return (
-            <RandomForm trx={this.props.trx} />
-        )
-    } else {
-        if (this.props.load <= 100) {
-        return (
-            <div>
-                <img className='img-welcome' src={Welcome} alt='Welcome' />
+  }
+
+  _renderLoading = () => {        
+        return(<div><img className='img-welcome' src={Welcome} alt='Welcome' /></div>)
+  }
+
+  _renderLoaded = () => {
+        return(
+            <div align='center' className='btn-bank text-center welcome'>                                    
+                <div>
+                    <svg className="bi bi-building" width="10em" height="10em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" d="M15.285.089A.5.5 0 0115.5.5v15a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5V14h-1v1.5a.5.5 0 01-.5.5H1a.5.5 0 01-.5-.5v-6a.5.5 0 01.418-.493l5.582-.93V3.5a.5.5 0 01.324-.468l8-3a.5.5 0 01.46.057zM7.5 3.846V8.5a.5.5 0 01-.418.493l-5.582.93V15h8v-1.5a.5.5 0 01.5-.5h2a.5.5 0 01.5.5V15h2V1.222l-7 2.624z" clipRule="evenodd"/>
+                    <path fillRule="evenodd" d="M6.5 15.5v-7h1v7h-1z" clipRule="evenodd"/>
+                    <path d="M2.5 11h1v1h-1v-1zm2 0h1v1h-1v-1zm-2 2h1v1h-1v-1zm2 0h1v1h-1v-1zm6-10h1v1h-1V3zm2 0h1v1h-1V3zm-4 2h1v1h-1V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm-2 2h1v1h-1V7zm2 0h1v1h-1V7zm-4 0h1v1h-1V7zm0 2h1v1h-1V9zm2 0h1v1h-1V9zm2 0h1v1h-1V9zm-4 2h1v1h-1v-1zm2 0h1v1h-1v-1zm2 0h1v1h-1v-1z"/>
+                    </svg>
+                </div>                    
+                <div>
+                    <span> Welcome to your Bank Application</span>
+                </div>
             </div>
         )
-        } else {
-            return(
-                <div align='center' className='btn-bank text-center welcome'>                                    
-                    <div>
-                        <svg className="bi bi-building" width="10em" height="10em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" d="M15.285.089A.5.5 0 0115.5.5v15a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5V14h-1v1.5a.5.5 0 01-.5.5H1a.5.5 0 01-.5-.5v-6a.5.5 0 01.418-.493l5.582-.93V3.5a.5.5 0 01.324-.468l8-3a.5.5 0 01.46.057zM7.5 3.846V8.5a.5.5 0 01-.418.493l-5.582.93V15h8v-1.5a.5.5 0 01.5-.5h2a.5.5 0 01.5.5V15h2V1.222l-7 2.624z" clipRule="evenodd"/>
-                        <path fillRule="evenodd" d="M6.5 15.5v-7h1v7h-1z" clipRule="evenodd"/>
-                        <path d="M2.5 11h1v1h-1v-1zm2 0h1v1h-1v-1zm-2 2h1v1h-1v-1zm2 0h1v1h-1v-1zm6-10h1v1h-1V3zm2 0h1v1h-1V3zm-4 2h1v1h-1V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm-2 2h1v1h-1V7zm2 0h1v1h-1V7zm-4 0h1v1h-1V7zm0 2h1v1h-1V9zm2 0h1v1h-1V9zm2 0h1v1h-1V9zm-4 2h1v1h-1v-1zm2 0h1v1h-1v-1zm2 0h1v1h-1v-1z"/>
-                        </svg>
-                    </div>                    
-                    <div>
-                        <span> Welcome to your Bank Application</span>
-                    </div>
-                </div>
-                )
-        }
+  }
+
+  render() {            
+      const { trx, load } = this.props
+    if (trx !== '') {
+        return this._renderTrx()
+    } else {
+        return load <= 100 ? this._renderLoading() : this._renderLoaded()
     }
   }
 }

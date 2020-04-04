@@ -7,13 +7,13 @@ import WorkSpace from './components/WorkSpace';
 import NavigationPanel from './components/NavigationPanel';
 import Login from './components/Login'
 
-const INIT_STATE = {trx : '', logged: false, user: 'Me', load: 0, loadLabel: ''}
+const INIT_STATE = {trx : '', logged: false, user: 'Me', load: 0, loadLabel: '', trxDescription:''}
 
 class App extends Component {
   state = INIT_STATE
 
-  _getTrx = (trx) => {
-    this.setState( {trx} )
+  _getTrx = (operationNode) => {    
+    this.setState( {trx: operationNode.trx, trxDescription: operationNode.description} )
   }
 
   _checkLogin = (state) => {
@@ -23,6 +23,10 @@ class App extends Component {
 
   _handleLogoff = () => {
       this.setState(INIT_STATE)
+  }
+
+  _handleResult = (trx) => {
+    this.setState({ trx })
   }
 
   // Simulate load
@@ -40,7 +44,7 @@ class App extends Component {
           msg = 'Despegando'
         }
         this.setState({ load: this.state.load + increment, loadLabel: msg})
-      }, 150)
+      }, 50)
       if (this.state.load > 100) clearTimeout(timer)
     
     }
@@ -54,19 +58,19 @@ class App extends Component {
       return(
         <div className="App">          
           <header className="">
-            <NavigationPanel onResult={this._getTrx} logged={this.state.logged} user={this.state.user} onLogoff={this._handleLogoff} load={this.state.load}/>
+            <NavigationPanel logged={this.state.logged} user={this.state.user} onLogoff={this._handleLogoff} load={this.state.load}/>
           </header>
             {progressInstance}
-            <WorkSpace trx={this.state.trx} load={this.state.load}/>             
+            <WorkSpace trx={this.state.trx} load={this.state.load} onDataTrxLoad={this._getTrx}/>             
         </div>        
       ) 
     }
     return(
         <div className="App">          
           <header className="">
-            <NavigationPanel onResult={this._getTrx} logged={this.state.logged} user={this.state.user} onLogoff={this._handleLogoff} load={this.state.load}/>
+            <NavigationPanel onResult={this._handleResult} logged={this.state.logged} user={this.state.user} onLogoff={this._handleLogoff} load={this.state.load} description={this.state.trxDescription}/>
           </header>
-            <WorkSpace trx={this.state.trx} load={this.state.load}/>        
+            <WorkSpace trx={this.state.trx} load={this.state.load} onDataTrxLoad={this._getTrx}/>        
         </div>
     )
   }
@@ -78,7 +82,7 @@ class App extends Component {
   }
 
   
-  render() {    
+  render() {          
       return this.state.logged ? this._renderLogged() : this._renderUnlogged()
     }  
 }

@@ -1,0 +1,17 @@
+{    
+    "operation": {
+        "trx": "TLD2",
+        "description": "Ingreso Efectivo"
+    },
+    "data": {
+        "import": 0,
+        "skypComission": false,
+        "reasons": [
+            {"key": 0, "value": "Es cliente del banco" },
+            {"key": 1, "value": "Es de la mafia rusa" },
+            {"key": 2, "value": "Es un atracador" },
+            {"key": 3, "value": "Tiene enchufe" },
+            {"key": 4, "value": "Conoce los trapos sucios del jefe" }
+        ]
+    }
+}

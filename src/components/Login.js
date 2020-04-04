@@ -19,7 +19,7 @@ export default class Login extends Component {
     if(this.state.error) return (<small>El usuario <span className='errorMsg'>{this.state.user}</span> es <span className='errorMsg-danger'>incorrecto</span></small>)        
     }
 
-    componentDidUpdate(prevProps, prevState) {            
+    componentDidUpdate(prevProps, prevState) {
         if (this.state.logged) this.props.onLogin(this.state)
     }
 
@@ -35,7 +35,7 @@ export default class Login extends Component {
                 <div className="card-body">
                     <form onSubmit={this._handleSubmit}>
                         {this._renderError()}
-                        <input onChange={this._handleChange}id='userId' className="form-control input-login" type="text" maxLength='7' size='7' required/>
+                        <input autoFocus onChange={this._handleChange} id='userId' className="form-control input-login" type="text" maxLength='7' size='7' required/>
                         <button className="form-control btn btn-light input-login btn-bank">LOGIN</button>
                     </form>
                 </div>

@@ -33,6 +33,9 @@
   margin-top: 10px;
   text-align: center; 
 }
+.input-nav{
+  text-align: center; 
+}
 .img-login{
   font-size: 20em;
   text-align: center;
@@ -78,4 +81,18 @@
 .welcome{
   height: 200px;
   margin-top: 200px;
+}
+.error{
+  height: 200px;
+  margin-top: 200px;
+}
+.input-amount{
+  text-align: right;
+  margin-right: 20px;
+}
+.form-row-bank{
+  margin-top: 10px;
+}
+.table-bank{
+  text-align: center;
 }
