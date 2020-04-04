@@ -14,21 +14,20 @@ function _renderOperations(operations) {
 }
 
 const TLD2 = (props) => {        
-    const { data } = props.trxData
-    console.log('data', data)
+    const { data } = props.trxData    
     return(
         <form className='form-bank'>                        
             <div className="form-row form-row-bank">  
                 <label className='label-bank col-sm-2' htmlFor="validationDefault01">Usuario</label>
-                <div className='col-sm-2'><input size='7' maxLength='7' onChange={props.onChange} value={data.user} type="text" className="form-control input-amount" id="validationDefault01" required/></div>
+                <div className='col-sm-2'><input size='7' maxLength='7' onChange={props.onChange} value={data.user} type="text" className="form-control input-amount" id="validationDefault01"/></div>
                 <label className='label-bank col-sm-2' htmlFor="validationDefault01">Transaccion</label>
-                <div className='col-sm-2'><input size='4' maxLength='4' onChange={props.onChange} value={data.trx} type="text" className="form-control input-amount" id="validationDefault01" required/></div>                
+                <div className='col-sm-2'><input size='4' maxLength='4' onChange={props.onChange} value={data.trx} type="text" className="form-control input-amount" id="validationDefault01"/></div>                
             </div>
             <div className="form-row form-row-bank">  
                 <label className='label-bank col-sm-2' htmlFor="validationDefault01">Fecha Inicio</label>
-                <div className='col-sm-2'><input size='8' maxLength='8' onChange={props.onChange} value={data.dateI} type="text" className="form-control input-amount" id="validationDefault01" required/></div>
+                <div className='col-sm-2'><input size='8' maxLength='8' onChange={props.onChange} value={data.dateI} type="text" className="form-control input-amount" id="validationDefault01"/></div>
                 <label className='label-bank col-sm-2' htmlFor="validationDefault01">Fecha Fin</label>
-                <div className='col-sm-2'><input size='8' maxLength='8' onChange={props.onChange} value={new Date().toLocaleDateString()} type="text" className="form-control input-amount" id="validationDefault01" required/></div>                
+                <div className='col-sm-2'><input size='8' maxLength='8' onChange={props.onChange} value={new Date().toLocaleDateString()} type="text" className="form-control input-amount" id="validationDefault01"/></div>                
             </div>            
             <div className="form-row form-row-bank">
                 <table className="table table-bank">

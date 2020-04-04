@@ -10,8 +10,7 @@ function _renderReasons(reasons) {
 }
 
 const TLD2 = (props) => {        
-    const { data } = props.trxData
-    console.log('data', data)
+    const { data } = props.trxData    
     return(
         <form className='form-bank'>                        
             <div className="form-row form-row-bank">  

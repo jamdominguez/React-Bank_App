@@ -6,7 +6,7 @@ export default class Login extends Component {
     // Simulate login validation
     _handleSubmit = (e) => {
         e.preventDefault()
-        const user = document.getElementById('userId').value
+        const user = document.getElementById('userId').value.toUpperCase()
         const isCorrect = user.length === 7        
         this.setState({ logged: isCorrect, user, error: !isCorrect })        
     }

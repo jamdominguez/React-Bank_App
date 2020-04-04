@@ -35,7 +35,7 @@ export default class WorkSpace extends Component {
                     </svg>
                 </div>                    
                 <div>
-                    <span> Welcome to your Bank Application</span>
+                    <span> Welcome to your Bank Application, example transaction availables: TLD2 and TLMV</span>
                 </div>
             </div>
         )

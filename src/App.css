@@ -50,7 +50,7 @@
 }
 .errorMsg-danger{
   font-weight: bolder;
-  color: red;
+  color: rgb(220, 53, 69);
 }
 .btn-trx{  
   margin: 20px 3px 5px;
@@ -62,15 +62,11 @@
 .btn-nav{
   font-weight: bolder !important;
   background-color: rgb(27, 40, 69) !important; 
-  border-color: red;
+  border-color: rgb(220, 53, 69);
   color: seashell !important;
 }
 .img-welcome{
   width: 100%;
-}
-.progress-custom {
-  background-color: purple;
-  color: white;
 }
 .nav-margin{
   margin-right: 50px;
@@ -95,4 +91,14 @@
 }
 .table-bank{
   text-align: center;
+}
+.device-ok{
+  color:green
+}
+.device-ko{
+  color:rgb(220, 53, 69)
+}
+.header-info{
+  color: rgb(27, 40, 69);   
+  background-color:  rgb(248, 249, 250);
 }
