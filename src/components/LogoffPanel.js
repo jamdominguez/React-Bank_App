@@ -27,12 +27,9 @@ export default class LogoffPanel extends Component {
                         <Modal.Header className='nav-bank-danger' closeButton>
                         <Modal.Title>¿Seguro que quiere desconectar?</Modal.Title>
                         </Modal.Header>                        
-                        <Modal.Footer>                        
-                        <Button variant="light" onClick={handleClose}>
-                            Cancel
-                        </Button>
+                        <Modal.Footer>
                         <Button variant="danger" onClick={this.props.onLogoff}>
-                            Desconectar
+                            <strong>Si, seguro</strong>
                         </Button>
                         </Modal.Footer>
                     </Modal>   

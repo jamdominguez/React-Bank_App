@@ -37,14 +37,14 @@ class App extends Component {
         const currentLoad = this.state.load
         let msg;
         if(currentLoad < 33) {
-          msg = 'Tomando asiento'
+          msg = 'Cargando librerias'
         } else if (33 <= currentLoad && currentLoad < 66) {
-          msg = 'Calentando motores'
+          msg = 'Conectando perifericos'
         } else {
-          msg = 'Despegando'
+          msg = 'Sorbito al cafe'
         }
         this.setState({ load: this.state.load + increment, loadLabel: msg})
-      }, 50)
+      }, 150)
       if (this.state.load > 100) clearTimeout(timer)
     
     }
