@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import  TLD2  from '../trx_containers/TLD2'
 import  TLMV  from '../trx_containers/TLMV'
-import  AQRI  from '../trx_containers/AQRI'
+//import  AQRI  from '../trx_containers/AQRI'
 import  Error  from './Error'
 import Welcome from '../img/Welcome.gif'
 
@@ -12,8 +12,8 @@ export default class WorkSpace extends Component {
                 return (<TLD2 onDataTrxLoad={this.props.onDataTrxLoad}/>)
             case 'TLMV':
                 return (<TLMV onDataTrxLoad={this.props.onDataTrxLoad}/>)                
-            case 'AQRI':
-                return (<AQRI onDataTrxLoad={this.props.onDataTrxLoad}/>)                
+            //case 'AQRI':
+                //return (<AQRI onDataTrxLoad={this.props.onDataTrxLoad}/>)                
             default:
                 return (<Error />)
         }
