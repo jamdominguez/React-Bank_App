@@ -105,7 +105,7 @@ export default class NavigationPanel extends PureComponent {
                     {this._renderLoadIcon()}
                     <LogoffPanel user={this.props.user} onLogoff={this.props.onLogoff}/> 
                     </Navbar.Collapse>
-                    </Navbar>
+                </Navbar>
                     <Modal show={this.state.show} onHide={this._handleClose} animation={false}>
                         <Modal.Header className='header-info' closeButton>
                         <Modal.Title>Informacion dispositivos: {this.props.user}</Modal.Title>
